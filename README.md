@@ -18,9 +18,9 @@ It allows users to play music tracks directly in their browser with basic contro
   
 ## Output Screenshots
 
-![Output 1](Screenshot 2025-06-03 194744.png)  
-![Output 2](Screenshot 2025-06-03 194755.png)  
-![Output 3](Screenshot 2025-06-03 194812.png)  
+(Screenshot 2025-06-03 194744.png)  
+(Screenshot 2025-06-03 194755.png)  
+(Screenshot 2025-06-03 194812.png)  
 ## Future Improvements
 - Add CSS for better styling and layout,•	A clean and responsive user interface
 - Include JavaScript for advanced controls like volume and playlists

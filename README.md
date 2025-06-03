@@ -18,7 +18,7 @@ It allows users to play music tracks directly in their browser with basic contro
   
 ## Output Screenshots
 
-![output1](Screenshot 2025-06-03 194744.png)  
+!(Screenshot 2025-06-03 194744.png)  
 (Screenshot 2025-06-03 194755.png)  
 (Screenshot 2025-06-03 194812.png)  
 ## Future Improvements

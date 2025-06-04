@@ -33,4 +33,4 @@ It allows users to play music tracks directly in their browser with basic contro
 - Prarthana sharma 
 - Sarvesh baghel 
 ## License
-This project is licensed under the MIT License. 
+This project is licensed under the MITS License. 

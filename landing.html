@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe - Landing</title>
+    <style>
+        /* Reuse same minimal style as new.html to keep theme consistent */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: #fff;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+        header img { width: 50px; height:50px; margin-right:15px; border-radius:50%; }
+        header h1 { font-size:1.8em; margin:0; color:#ffcc00; }
+        nav { margin-left: auto; }
+        nav a { color:#fff; text-decoration:none; margin:0 15px; font-weight:bold; }
+        nav a:hover { color:#ffcc00; }
+        .hero { max-width:900px; margin:120px auto 40px; padding:20px; text-align:center; }
+        .hero h2 { font-size:2em; color:#ffcc00; margin-bottom:10px; }
+        .hero p { font-size:1.05em; line-height:1.5; }
+        .features { max-width:900px; margin:20px auto; padding:20px; display:grid; gap:10px; }
+        .feature { background: rgba(255,255,255,0.06); padding:12px; border-radius:8px; }
+        .player-cta { text-align:center; margin:30px 0; }
+        .player-btn { background: linear-gradient(to right, #43cea2, #185a9d); color:#fff; border:none; padding:12px 18px; border-radius:8px; font-size:1em; cursor:pointer; }
+        footer { text-align:center; padding:20px; background-color: rgba(0,0,0,0.8); color:#fff; font-size:0.9em; margin-top:40px; }
+    </style>
+</head>
+<body>
+    <header id="home">
+        <img src="vibe.png" alt="Vibe">
+        <h1>Vibe</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Key Features</a>
+            <a href="#player">Music Player</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="about">
+            <h2>What is Vibe?</h2>
+            <p>Vibe is a simple, student-friendly music player web project that lets you browse categories and play songs in a lightweight UI. It focuses on clarity and ease-of-use — suitable for learning web development.</p>
+        </section>
+
+        <section class="features" id="features">
+            <div class="feature"><strong>Simple UI:</strong> Clear layout with categories and a compact player.</div>
+            <div class="feature"><strong>Playlists:</strong> Browse songs by category and play instantly.</div>
+            <div class="feature"><strong>Controls:</strong> Play/Pause, Next/Prev and Repeat support.</div>
+            <div class="feature"><strong>Lightweight:</strong> Built with basic HTML, CSS and JavaScript.</div>
+        </section>
+
+        <section class="player-cta" id="player">
+            <p>Ready to try the music player?</p>
+            <a href="new.html"><button class="player-btn">Open Music Player</button></a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vibe. Back to <a href="new.html" style="color:#ffcc00; text-decoration:none;">Player</a></p>
+    </footer>
+
+    <script>
+        // Smooth scroll for internal anchors
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+            a.addEventListener('click', function(e){
+                e.preventDefault();
+                const id = this.getAttribute('href').substring(1);
+                const el = document.getElementById(id);
+                if(el) el.scrollIntoView({behavior:'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>

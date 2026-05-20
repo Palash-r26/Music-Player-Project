@@ -6,12 +6,17 @@
     <title>Vibe - Music Player</title>
     <style>
       
+        * { box-sizing: border-box; }
+        html, body { height: 100%; overflow-x: hidden; }
         body {
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); /* Purple & Orange Gradient */
             color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -21,25 +26,40 @@
             padding: 10px 20px;
             position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             width: 100%;
             z-index: 10;
+            justify-content: space-between;
         }
 
         header img {
             width: 50px;
             height: 50px;
-            margin-right: 15px;
+            margin-right: 10px;
             border-radius: 50%;
         }
 
-        header h1 {
-            font-size: 1.8em;
+        .brand h1, header h1 {
+            font-size: 1.25em;
             margin: 0;
-            color: #ffcc00; 
+            color: #ffcc00;
+            font-weight: 700;
         }
 
         nav {
             margin-left: auto;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-right: 40px; /* nudge nav slightly left from the edge */
+        }
+        /* prevent nav items from wrapping into unexpected places on very small screens */
+        @media (max-width: 520px) {
+            nav { gap: 8px; }
+            header h1, .brand h1 { font-size: 1em; }
         }
 
         nav a {
@@ -55,28 +75,36 @@
         }
 
         .main-container {
-            max-width: 1200px;
-            margin: 100px auto 50px;
-            display: flex;
-            gap: 20px;
+            width: 100%;
+            max-width: none;
+            padding: 120px 8%;
+            margin: 0 auto 50px;
+            display: block;
+            flex: 1 0 auto;
+            text-align: center;
         }
 
+        /* center a fixed-width categories box so all buttons are same length */
         .categories {
-            flex: 2;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            margin: 0 auto;
+            padding: 28px 36px;
+            background-color: rgba(255, 255, 255, 0.08);
             border-radius: 10px;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.01);
         }
 
         .song-category {
-            font-size: 1.5em;
-            padding: 15px;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #ff7e5f, #feb47b); 
+            font-size: 1.4em;
+            padding: 14px 18px;
+            margin: 10px 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
             color: #fff;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             text-align: center;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .song-category:hover {
@@ -85,19 +113,27 @@
 
         .song-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 10px;
-            justify-content: center;
+            flex-wrap: nowrap; /* prefer single row */
+            gap: 24px;
+            margin-top: 18px;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
         }
 
         .song-item {
             text-align: center;
+            flex: 0 0 calc((100% - 48px) / 3); /* three items per row, account for two gaps */
+            max-width: calc((100% - 48px) / 3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         .song-item img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: auto;
             border-radius: 15px;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -107,6 +143,23 @@
         .song-item img:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* make song links more visible */
+        .song-item a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* small screens: allow wrapping if necessary */
+        @media (max-width: 860px) {
+            .song-list { flex-wrap: wrap; }
+            .song-item { flex: 0 0 45%; }
+        }
+        @media (max-width: 520px) {
+            .song-item { flex: 0 0 100%; }
+            .categories { padding: 16px; }
         }
 
         
@@ -182,17 +235,23 @@
             color: #fff;
             font-size: 0.9em;
         }
+
+        /* ensure footer stays after content */
+        main { flex: 1 0 auto; }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="vibe.png" alt="Vibe">
-    <h1>Vibe - Music Player</h1>
+    <header>
+    <div class="brand">
+        <a href="new.html" aria-label="Vibe - Music Player" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
+            <img src="vibe.png" alt="Vibe">
+            <h1 style="margin-left:10px;">Vibe</h1>
+        </a>
+    </div>
     <nav>
         <a href="landing.html#home">Home</a>
         <a href="landing.html#about">About</a>
-        <a href="landing.html#features">Help</a>
     </nav>
 </header>
 
